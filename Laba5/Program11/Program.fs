@@ -1,5 +1,6 @@
 ﻿open System
 
+
 let f = function
     | "f#" | "prolog"       -> "Подлиза!"
     | "java"                -> "Серьёзный дядя"
