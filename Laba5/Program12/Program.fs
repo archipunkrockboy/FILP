@@ -1,13 +1,24 @@
-﻿// Learn more about F# at http://docs.microsoft.com/dotnet/fsharp
-
-open System
-
-// Define a function to construct a message to print
-let from whom =
-    sprintf "from %s" whom
-
+﻿open System
 [<EntryPoint>]
+
 let main argv =
-    let message = from "F#" // Call the function
-    printfn "Hello world %s" message
-    0 // return an integer exit code
+    let lower (s: string) = s.ToLower()
+    let compareAnswer (s: string) =
+        match s with
+        | "f#" | "prolog"       -> "Подлиза!"
+        | "java"                -> "Серьёзный дядя"
+        | "r"                   -> "эээёёёёр"
+        | "python"              -> "Я спрашивал про язык программирования"
+        | "c++"| "c#"           -> "Красавчик"
+        | "pascal"| "pascalabc" -> "Поздравляю, вы прошли программирование"
+        | "русский"             -> "Хороший выбор!"
+        | _                     -> "Ну ты и выдал"  
+    //12.1
+    printfn("Ваш любимый язык программирования?")
+    (Console.ReadLine >> lower >> compareAnswer>> Console.WriteLine)()
+    //12.2
+    printfn("Ваш любимый язык программирования?")
+    let result answer func out = out(func(answer()))
+    result Console.ReadLine compareAnswer Console.WriteLine
+    
+    0 
