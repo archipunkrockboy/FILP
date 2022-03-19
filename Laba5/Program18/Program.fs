@@ -48,6 +48,5 @@ let main argv =
     
     Console.WriteLine(Program.EulerNumber 20)//18.1
     Console.WriteLine(Sum3 133692)//18.2
-    
     Console.WriteLine(MaxPrimeNumber 28)//18.3
     0 
