@@ -2,7 +2,7 @@
 
 //сумма цифр числа, делящихся на 3
 let Sum3 x = 
-    let rec Sum3 x sum = 
+    let rec Sum3 x sum  = 
         if x = 0 then sum
         else
             if x%10%3 = 0 then
@@ -48,5 +48,6 @@ let main argv =
     
     Console.WriteLine(Program.EulerNumber 20)//18.1
     Console.WriteLine(Sum3 133692)//18.2
+    
     Console.WriteLine(MaxPrimeNumber 28)//18.3
     0 

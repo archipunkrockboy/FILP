@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32106.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Laba6", "Laba6", "{C835D68F-9FB4-4BAC-8D74-215C38F0EC2D}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Program11", "Program11\Program11.fsproj", "{05A0E5CB-B460-42B6-8FE4-3EF58CDA893F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{05A0E5CB-B460-42B6-8FE4-3EF58CDA893F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05A0E5CB-B460-42B6-8FE4-3EF58CDA893F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05A0E5CB-B460-42B6-8FE4-3EF58CDA893F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05A0E5CB-B460-42B6-8FE4-3EF58CDA893F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{05A0E5CB-B460-42B6-8FE4-3EF58CDA893F} = {C835D68F-9FB4-4BAC-8D74-215C38F0EC2D}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FD9C63A4-E4E8-4C2D-ADB5-699691B9926C}
+	EndGlobalSection
+EndGlobal
