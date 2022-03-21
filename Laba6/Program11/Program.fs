@@ -1,13 +1,31 @@
-﻿// Learn more about F# at http://docs.microsoft.com/dotnet/fsharp
+﻿open System
+let rec ReadList n = 
+    if n=0 then []
+    else
+    let Head = System.Convert.ToInt32(System.Console.ReadLine())
+    let Tail = ReadList (n-1)
+    Head::Tail
 
-open System
+let ReadData = 
+    let n=System.Convert.ToInt32(System.Console.ReadLine())
+    ReadList n
 
-// Define a function to construct a message to print
-let from whom =
-    sprintf "from %s" whom
+let rec WriteList = function
+    [] ->   let z = System.Console.ReadKey()
+            0
+    | (head : int)::tail -> 
+                       System.Console.Write(head)
+                       System.Console.Write(" ")
+                       WriteList tail  
+
+
+
+
+
 
 [<EntryPoint>]
 let main argv =
-    let message = from "F#" // Call the function
-    printfn "Hello world %s" message
-    0 // return an integer exit code
+    
+
+
+    0
