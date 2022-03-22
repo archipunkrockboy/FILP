@@ -1,11 +1,30 @@
 ﻿open System
 
-ShiftList list n = 
-    ShiftList1 list n a b c currentIndex = 
-        
+//удаление элемента из списка с номером n
+let DelElem list n = 
+    let rec DelElem1 (list: 'a list) n (list1: 'a list) currentIndex = 
+        if n = currentIndex then list1 @ list.Tail
+
+        else
+            let newList1 = list1 @ [list.Head]
+            DelElem1 list.Tail n newList1 (currentIndex+1)
+    DelElem1 list n [] 0
+
+let rec ShiftListRight1 (list: 'a list) n =
+    if n=0 then list
+    else
+        if list.Length <= 1 then list 
+        else
+           ShiftListRight1 ([list.[list.Length-1]] @ DelElem list (list.Length-1)) (n-1) // список, полученный путём list[last]+list без последнего эл-та
+
+
 
 
 [<EntryPoint>]
 let main argv =
     
+
+    let list = Program.ReadData
+    Program.WriteList(ShiftListRight1 list 2)
+
     0 
