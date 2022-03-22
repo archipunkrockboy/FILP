@@ -10,12 +10,12 @@ let DelElem list n =
             DelElem1 list.Tail n newList1 (currentIndex+1)
     DelElem1 list n [] 0
 
-let rec ShiftListRight1 (list: 'a list) n =
+let rec ShiftListRight (list: 'a list) n =
     if n=0 then list
     else
         if list.Length <= 1 then list 
         else
-           ShiftListRight1 ([list.[list.Length-1]] @ DelElem list (list.Length-1)) (n-1) // список, полученный путём list[last]+list без последнего эл-та
+           ShiftListRight ([list.[list.Length-1]] @ DelElem list (list.Length-1)) (n-1) // список, полученный путём list[last]+list без последнего эл-та
 
 
 
@@ -25,6 +25,6 @@ let main argv =
     
 
     let list = Program.ReadData
-    Program.WriteList(ShiftListRight1 list 2)
+    Program.WriteList(ShiftListRight list 2)
 
     0 
