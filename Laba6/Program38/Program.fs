@@ -7,7 +7,8 @@ let CountOnAB list a b =
         |(head : int)::tail -> if head >= a && head <= b then CountOnAB1 tail a b count+1
                                else CountOnAB1 tail a b count
     CountOnAB1 list a b 0
-                                                                
+      
+      
 [<EntryPoint>]
 let main argv =
     
