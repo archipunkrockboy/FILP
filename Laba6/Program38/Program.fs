@@ -14,5 +14,4 @@ let main argv =
     let list = Program.ReadData
     Program.WriteList list
     Console.WriteLine(CountOnAB list 1 10)
-
     0 
