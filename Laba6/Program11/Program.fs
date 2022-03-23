@@ -19,9 +19,23 @@ let rec WriteList = function
                        System.Console.Write(" ")
                        WriteList tail  
 
-
+let ListProcessing list = 
+    let rec ListProcessing1 list resultList = 
+        match list with
+        []->resultList
+        |head :: a :: b :: tail -> ListProcessing1 tail (resultList@[head + a + b])
+        |head :: a :: tail -> ListProcessing1 tail (resultList@[head + a + 1])                            
+        |head :: tail -> ListProcessing1 tail (resultList@[head + 2])
+                         
+    ListProcessing1 list []
 
 [<EntryPoint>]
 let main argv =
+
+    let list = ReadData
+    WriteList list
+    let list = ListProcessing list
+    Console.WriteLine()
+    WriteList list
 
     0
