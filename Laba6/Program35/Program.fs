@@ -5,7 +5,7 @@ let CloselyToX (list: 'a list) x =
     let rec CloselyToX (list: 'a list) x minDifference elem = 
         match list with
         []-> elem
-        |head :: tail-> if abs(head - x) < minDifference then CloselyToX tail x abs(head - x) head 
+        |head :: tail-> if abs(head - x) < minDifference then CloselyToX tail x (abs(head - x)) head 
                         else CloselyToX tail x minDifference elem
     CloselyToX list x list.Head list.Head
 
