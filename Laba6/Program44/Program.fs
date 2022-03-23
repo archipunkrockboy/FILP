@@ -17,16 +17,30 @@ let rec WriteList2 = function
                        System.Console.Write(" ")
                        WriteList2 tail  
 
+let rec CheckZR list = 
+    let rec CheckZR1 list t = 
+        match list with 
+        []->true
+        |head :: tail -> if (abs(t%1.0) = 0.0) then 
+                                                if (abs(head%1.0) <> 0.0) then CheckZR1 tail head
+                                                else false
+                         else
+                            if (abs(head%1.0) = 0.0) then CheckZR1 tail head
+                            else false
+    CheckZR1 list list.[1]
 
-
-
-
+let CheckList list = 
+    Console.WriteLine()
+    if CheckZR list then Console.WriteLine("Условие выполнено")
+    else Console.WriteLine("Условие НЕ выполнено")
 
 
 [<EntryPoint>]
 let main argv =
     
     let list = ReadData2
+
     WriteList2 list
 
+    CheckList list
     0
