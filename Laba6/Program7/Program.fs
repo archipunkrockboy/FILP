@@ -10,6 +10,9 @@ let DelElem list n =
             DelElem1 list.Tail n newList1 (currentIndex+1)
     DelElem1 list n [] 0
 
+
+
+
 let rec ShiftListRight (list: 'a list) n =
     if n=0 then list
     else
