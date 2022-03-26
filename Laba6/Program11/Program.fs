@@ -29,13 +29,24 @@ let ListProcessing list =
                          
     ListProcessing1 list []
 
+
+//переделал
+let f1 list f =
+    let rec f11 list f resultList = 
+        match list with 
+        []->resultList
+        |head :: a :: b :: tail -> f11 tail f (resultList@[f head a b])
+        |head :: a :: tail -> f11 tail f (resultList@[f head a 1])
+        |head :: tail -> f11 tail f (resultList@[f head 1 1])
+    f11 list f []
+    
+
 [<EntryPoint>]
 let main argv =
 
     let list = ReadData
     WriteList list
-    let list = ListProcessing list
-    Console.WriteLine()
-    WriteList list
+    WriteList(f1 list (fun x y z -> x + y + z))
+    WriteList (ListProcessing list)
 
     0
