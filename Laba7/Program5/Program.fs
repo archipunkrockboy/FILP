@@ -1,5 +1,7 @@
 ﻿open System
 
+//48
+
 //сколько x в list
 let Frequency list x = 
     let rec Frequence list x count = 

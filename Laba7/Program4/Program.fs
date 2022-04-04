@@ -1,5 +1,7 @@
 ﻿open System
 
+//38
+
 //количество элементов на  отрезке А Б 
 let CountElemOnAB list a b = 
     let rec CountElemOnAB1 list a b resultList= 

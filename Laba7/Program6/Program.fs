@@ -1,5 +1,7 @@
 ﻿open System
 
+//58
+
 //можно ли представить элемент списка как сумма двух других
 let FormElem (list: 'a list) elem = 
     let rec FormElem1 (list: 'a list) elem (list1: 'a list) n= 

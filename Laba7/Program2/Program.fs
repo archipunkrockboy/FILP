@@ -1,5 +1,7 @@
 ﻿open System
 
+//18
+
 //элементы до N
 let ElemBeforeMin list = 
     let rec ElemBeforeMin1 list currentIndex minIndex resultList = 

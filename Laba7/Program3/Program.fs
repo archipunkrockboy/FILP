@@ -1,5 +1,7 @@
 ﻿open System
 
+//28
+
 //элементы между первым и последним максимальным
 let ElemBetweenFirstLastMax list= 
     let rec ElemBetweenFirstLastMax1 list maxIndex resultList = 
