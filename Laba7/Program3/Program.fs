@@ -13,7 +13,9 @@ let ElemBetweenFirstLastMax list=
                               else resultList
         |head :: tail -> resultList
     ElemBetweenFirstLastMax1 list (List.findIndexBack (fun x-> x = (List.max list)) list) []
-    
+   
+
+
     
 
 
