@@ -2,46 +2,30 @@
 
 //48
 
-//сколько x в list
-let Frequency list x = 
-    let rec Frequence list x count = 
-        match list with 
-        []->count
-        |head :: tail -> if head = x then Frequence tail x (count+1)
-                         else Frequence tail x count
-    Frequence list x 0
-
-//самый часто встрочающийся элемент list
+//самый часто встречающийся элемент list
 let MaxFrequencyElem list = 
     let rec MaxFrequencyElem1 list maxElem maxCount = 
         match list with 
         []-> maxElem
-        |head :: tail -> if Frequency list head > maxCount then 
-                            MaxFrequencyElem1 tail head (Frequency list head)
+        |head :: tail -> if List.fold (fun acc elem -> if elem = head then acc+1 else acc+0) 0 list > maxCount//если частота встречи head > maxCount 
+                            then MaxFrequencyElem1 tail head (List.fold (fun acc elem -> if elem = head then acc+1 else acc+0) 0 list)
                          else MaxFrequencyElem1 tail maxElem maxCount
-    MaxFrequencyElem1 list list.Head (Frequency list list.Head)
+    MaxFrequencyElem1 list list[0] 0
 
 
 //индексы самого часто встречающегося элемента массива
 let MaxFrequencyElemIndexes list = 
-    let rec MaxFrequencyElemIndexes1 list maxElem currentIndex resultList = 
-        match list with
-        [] -> resultList
-        |head :: tail -> if head = maxElem then
-                            MaxFrequencyElemIndexes1 tail maxElem (currentIndex+1)(List.append resultList [currentIndex]) 
-                         else 
-                            MaxFrequencyElemIndexes1 tail maxElem (currentIndex+1) resultList
-    MaxFrequencyElemIndexes1 list (MaxFrequencyElem list) 0 []
- 
+    List.filter (fun x->x<>(-1)) (List.mapi (fun i x -> if x = (MaxFrequencyElem list) then i else -1 ) list)
+    
+    
+
+
 [<EntryPoint>]
 let main argv = 
-
-
+    
     let list = Program.ReadData
     Program.WriteList list
-    Console.WriteLine(Frequency list 5)
     Console.WriteLine(MaxFrequencyElem list)
     Program.WriteList(MaxFrequencyElemIndexes list)
-
 
     0
