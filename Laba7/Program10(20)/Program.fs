@@ -35,7 +35,12 @@ let MaxAverageWeight3 (str: string) =
 
 let Method2 (strList: string list) = 
     List.sortBy(fun x -> (AverageWeight x - AverageWeight (MaxAverageWeight3 x) * (AverageWeight (MaxAverageWeight3 x) - AverageWeight x))) strList
-   
+ 
+let ChooseMethod n strList = 
+    match n with
+    |1 -> Method1 strList
+    |_ -> Method2 strList
+    
    
 [<EntryPoint>]
 let main argv = 
@@ -44,5 +49,12 @@ let main argv =
     let cnt = Console.ReadLine() |> Convert.ToInt32
     printfn "Список:"
     let list = ReadList cnt
-    
+    printfn "Как отсортировать строки: "
+    printfn "1. В порядке увеличения среднего веса ASCII-кода символа строки"
+    printfn "2. В порядке увеличения квадратичного отклонения между средним
+весом ASCII-кода символа в строке и максимально среднего ASCII-кода
+тройки подряд идущих символов в строке"
+
+    let methodNumber = Console.ReadLine() |> Convert.ToInt32
+    WriteList(ChooseMethod methodNumber list)
     0
