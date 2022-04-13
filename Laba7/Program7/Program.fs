@@ -2,26 +2,19 @@
 
 //19
 
-let LowIsOrdered str = 
-    let rec LowIsOrdered1 (str: string) currentIndex = 
-        if currentIndex+1 = str.Length then true
-        else
-            if Char.IsLower str.[0] then 
-                if (Char.GetNumericValue  str.[currentIndex] < Char.GetNumericValue str[currentIndex+1] ) then
-                    LowIsOrdered1 str (currentIndex+1)
-                else false
-            else LowIsOrdered1 str (currentIndex+1)
-    LowIsOrdered1 str 0
+let Method1 (str: string) = 
+    let strLow = String.filter (fun x -> (Char.IsLower x)) str
+    let sortList=Seq.toList(strLow)
+    let result = List.map2(fun elem1 elem2-> elem1 <=elem2) sortList.[0..sortList.Length-2] sortList.[1..sortList.Length-1] 
+    if (List.fold (fun acc x-> if x=false then acc + 1 else acc) 0 result) = 0 then Console.WriteLine("Строчные символы отсортированы")
+    else Console.WriteLine("Строчные символы НЕ отсортированы")
 
-
-
+let Method2 (str: string) = 
+    (String.filter(fun x -> x ='A') str).Length
 
 
 [<EntryPoint>]
 let main argv = 
 
-    let s = "sdaasdasds"
-
-    let x = Char.ConvertToUtf32 s 5
-
+   
     0
